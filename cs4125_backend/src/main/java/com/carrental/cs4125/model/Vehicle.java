@@ -1,4 +1,8 @@
 package com.carrental.cs4125.model;
 
-public class Vehicle {
+public interface Vehicle {
+    Car();
+    boolean getAvailability();
+    void setAvailability(boolean);
+    void vehicleDetails();
 }

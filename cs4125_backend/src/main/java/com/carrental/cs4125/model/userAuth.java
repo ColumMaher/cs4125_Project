@@ -22,7 +22,7 @@ public class userAuth {
     }
 
     public static void main(String args[]){
-        //register("Sean2", "seanfitz12", "fitzgibbonsean3@gmail.com");
+        register("Sean2", "seanfitz12", "fitzgibbonsean3@gmail.com");
         login("Sean2", "seanfitz12");
         System.out.println("Done");
     }
