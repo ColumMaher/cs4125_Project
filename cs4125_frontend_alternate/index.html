@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en" vocab="http://schema.org/" typeof="WebApplication">
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Rental Service</title>
+  <meta property="browserRequirements" content="requires HTML5 support" />
+  <meta property="storageRequirements" content="Local Storage of browser" />
+  <meta property="countriesSupported" content="en" />
+  <meta property="applicationCategory" content="Data management" />
+  <meta property="creator" content="Adam Butler" />
+  <script src="src/ctrl/initialize.js"></script>
+  <script src="src/model/Vehicle.js"></script>
+</head>
+<body>
+  <hgroup>
+   <h1>Car Rental Service</h1>
+   <h2>Admin Version</h2>
+   <h3>From here you can access the Administrator's controls.</h3>
+  </hgroup>
+  <figure style="float:right">
+   <a href="https://www.completecar.ie/img/testdrives/11640_large.jpg">
+   <img property="thumbnailUrl" title="2022 Volkswagen Golf" 
+    src="https://www.completecar.ie/img/testdrives/11640_large.jpg" width="500" /></a>
+  </figure>
+  <p>Below you can modify the vehicle database:</p>
+    <menu>
+      <li><a href="listVehicles.html"><button type="button">List all currently available vehicles</button></a></li>
+      <li><a href="createVehicle.html"><button type="button">List a new vehicle</button></a></li>
+      <li><a href="updateVehicle.html"><button type="button">Update a vehicle</button></a></li> <!-- Update a vehicle's parameters, including its availability.-->
+      <li><a href="deleteVehicle.html"><button type="button">Delete a vehicle</button></a></li> <!-- If a vehicle is to be premantly removed from the system, e.g. in the event of irreperable damage.-->
+      <li><button type="button" onclick="Vehicle.clearData()">Clear the database</button></li> <!-- DEVELOPMENT TOOL - Clears all vehicles from the database.-->
+      <li><button type="button" onclick="Vehicle.createTestData()">Create test data</button></li> <!-- DEVELOPMENT TOOL - Creates sample vehicles for testing-->
+    </menu>
+    <p>For testing with the app, you may first want to <button type="button" onclick="Vehicle.createTestData()">Create test data</button>
+	 and then view it with <a href="listVehicles.html"><button type="button">List all currently available vehicles</button></a>.</p>
+    <footer style="font-size: small;">
+     <hr />
+     <div>
+      <p>The image above comes from <a href="https://www.completecar.ie/car-reviews/article/Volkswagen/Golf/Golf_R_Variant_(2022)/1998/11640/2022-Volkswagen-Golf-R-Variant-(2022)-review.html">Complete Car</a>'s Review of the 2022 Volkswagen Golf</p>
+      This site is still under active development.
+     </div>
+    </footer>
+</body>

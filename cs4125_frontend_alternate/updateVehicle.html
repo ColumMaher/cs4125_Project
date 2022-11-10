@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update a vehicle</title>
+  <script src="src/ctrl/initialize.js"></script>
+  <script src="src/model/Vehicle.js"></script>
+  <script src="src/view/updateVehicle.js"></script>
+  <script>
+   window.addEventListener("load", pl.view.updateVehicle.setupUserInterface);
+  </script>
+</head>
+<body>
+  <h1>Update a vehicle</h1>
+  <form id="Vehicle">
+    <p>
+      <label>Select vehicle: 
+        <select name="selectVehicle"><option value=""> --- </option></select>
+      </label>
+    </p>
+    <p><label>Manufacturer: <input name="isbn" readonly="readonly" /></label></p>
+    <p><label>Model: <input name="title" /></label></p>
+    <p><label>Year: <input name="year" /></label></p>
+    <p><button type="button" name="commit">Save Changes</button></p>
+  </form>
+  <nav><a href="index.html">Back to admin menu</a></nav>
+</body>
+</html>
