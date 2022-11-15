@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xml:lang="en" lang="en">
   <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8" />
     <title>Browse Vehicles</title>
     <script src="src/ctrl/initialize.js"></script>
@@ -13,10 +14,13 @@
   </head>
   <body>
     <h1>Browse vehicles</h1>
-    <table id="vehicles">
+    <table class="center" id="vehicles">
       <thead><tr><th>Manufacturer</th><th>Model</th><th>Year</th><th>Availability</th></tr></thead>
       <tbody></tbody>
     </table>
-    <nav><a href="index.html">Back to admin menu</a></nav>
+    <!--<nav><a href="index.html">Back to admin menu</a></nav>-->
+    <menu>
+      <a href="index.html"><button type="button">Back to the admin menu</button></a>
+    </menu>
   </body>
 </html>
