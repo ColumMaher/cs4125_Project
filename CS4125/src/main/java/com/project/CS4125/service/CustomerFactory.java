@@ -2,7 +2,9 @@ package com.project.CS4125.service;
 
 
 import com.project.CS4125.model.User;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomerFactory implements com.project.CS4125.service.UserFactory {
 
     @Override

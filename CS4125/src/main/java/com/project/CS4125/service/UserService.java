@@ -7,5 +7,7 @@ import java.util.List;
 public interface UserService {
     public User saveUser(User user);
 
+    public User authenticate(String name, String password);
+
     public List<User> getAllUsers();
 }

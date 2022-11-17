@@ -1,12 +1,8 @@
 package com.project.CS4125.controller;
 
 import com.project.CS4125.model.User;
-import com.project.CS4125.repository.UserRepository;
-import com.project.CS4125.service.CustomerFactory;
 import com.project.CS4125.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,20 +14,6 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    private CustomerFactory userFactory;
-
-    @GetMapping("/")
-    public String register(Model model){
-        model.addAttribute("user", new User());
-        return "register";
-    }
-
-    @PostMapping("/userRegister")
-    public String registerUser(@ModelAttribute("user") User user){
-        user = userFactory.createUser(user.getName(), user.getPassword());
-        userService.saveUser(user);
-        return "home";
-    }
 
     @PostMapping
     User newUser(@RequestBody User newUser) { return userService.saveUser(newUser); }

@@ -20,6 +20,11 @@ public class UserServer implements com.project.CS4125.service.UserService {
     }
 
     @Override
+    public User authenticate(String name, String password){
+        return userRepository.findByNameAndPassword(name, password).orElse(null);
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
