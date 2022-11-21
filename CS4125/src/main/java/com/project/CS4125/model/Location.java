@@ -1,38 +1,40 @@
 package com.project.CS4125.model;
 
+import javax.persistence.Basic;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Location implements Subject{
+public class Location implements Observer{
     Vehicle v;
-    ArrayList<Observer> observerList;
+    String locationName;
     ArrayList<Vehicle> locationVehicles;
-    public Location(){
-        observerList = new ArrayList<Observer>();
+    public Location(String locName){
+        this.locationName = locName;
+        this.locationVehicles = new ArrayList<Vehicle>();
     }
+
 
     @Override
-    public void attach(Observer o){
-        observerList.add(o);
-    }
-
-    @Override
-    public void detach(Observer o){
-        observerList.remove(observerList.indexOf(o));
-    }
-
-    @Override
-    public void notifyUpdate(Vehicle v){
-        for(Iterator<Observer> it =
-            observerList.iterator(); it.hasNext();)
-        {
-            Observer o = it.next();
-            o.update(v);
-        }
-    }
-
     public void addVehicle(Vehicle v){
         locationVehicles.add(v);
-        notifyUpdate(v);
+        System.out.println("Vehicle added to location " + locationName);
     }
+
+    /*public static void main(String[] args){
+        Location loc1 = new Location("A");
+        Location loc2 = new Location("B");
+        Location loc3 = new Location("C");
+        Vehicle v = new BasicCar();
+        VehicleUpdatePublisher p = new VehicleUpdatePublisher();
+
+        p.attach(loc1);
+        p.attach(loc2);
+
+        p.notifyUpdate(v);
+
+        p.detach(loc1);
+        p.attach(loc3);
+
+        System.out.println(loc1.locationVehicles.toString());
+    }*/
 }
