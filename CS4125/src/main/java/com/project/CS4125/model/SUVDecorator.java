@@ -6,6 +6,7 @@ public class SUVDecorator extends VehicleDecorator{
         super(v);
     }
 
+
     @Override
     public void assemble() {
         System.out.println("Assembling SUV");
@@ -13,6 +14,7 @@ public class SUVDecorator extends VehicleDecorator{
 
     @Override
     public String BodyType() {
+
         return "SUV";
     }
 

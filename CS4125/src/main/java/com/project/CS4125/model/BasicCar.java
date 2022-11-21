@@ -2,6 +2,9 @@ package com.project.CS4125.model;
 
 public class BasicCar implements Vehicle{
 
+    public BasicCar(){
+
+    }
    @Override
     public void assemble(){
        System.out.println("Basic Car");
