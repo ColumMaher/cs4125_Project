@@ -2,8 +2,20 @@ package com.project.CS4125.model;
 
 public class BasicCar implements Vehicle{
 
-    public BasicCar(){
+    private String name;
+    private String BodyType;
+    private float EngineSize;
+    private String fuel;
+    private int SeatCapacity;
 
+    private boolean isRented;
+    public BasicCar(){
+        this.name = "Golf";
+        this.BodyType = "Hatch Back";
+        this.EngineSize = (float) 1.2;
+        this.fuel = "Petrol";
+        this.SeatCapacity = 5;
+        this.isRented = false;
     }
    @Override
     public void assemble(){
@@ -28,5 +40,13 @@ public class BasicCar implements Vehicle{
     @Override
     public int SeatCapacity() {
         return 5;
+    }
+
+    public boolean isRented() {
+        return isRented;
+    }
+    @Override
+    public void setRented(boolean rented) {
+        isRented = rented;
     }
 }

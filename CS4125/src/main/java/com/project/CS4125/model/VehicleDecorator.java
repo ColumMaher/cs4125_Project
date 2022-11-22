@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class VehicleDecorator implements Vehicle{
    protected Vehicle vehicle;
+   private boolean isRented;
 
    public VehicleDecorator(Vehicle v){
        this.vehicle = v;
+       this.isRented = false;
    }
 
    @Override
@@ -33,4 +35,12 @@ public class VehicleDecorator implements Vehicle{
    public int SeatCapacity() {
         return vehicle.SeatCapacity();
    }
+    @Override
+    public void setRented(boolean rented) {
+        isRented = rented;
+    }
+
+    public boolean isRented() {
+        return isRented;
+    }
 }

@@ -15,9 +15,8 @@ public class Location implements Observer{
 
 
     @Override
-    public void addVehicle(Vehicle v){
-        locationVehicles.add(v);
-        System.out.println("Vehicle added to location " + locationName);
+    public void VehicleStatus(String status){
+        System.out.println(status);
     }
 
     /*public static void main(String[] args){
@@ -25,16 +24,27 @@ public class Location implements Observer{
         Location loc2 = new Location("B");
         Location loc3 = new Location("C");
         Vehicle v = new BasicCar();
-        VehicleUpdatePublisher p = new VehicleUpdatePublisher();
+        Vehicle Duster = new SUVDecorator(new BasicCar());
+
+        VehicleUpdatePublisher p = new VehicleUpdatePublisher(v);
+        VehicleUpdatePublisher DusterSubject = new VehicleUpdatePublisher(Duster);
 
         p.attach(loc1);
+        DusterSubject.attach(loc1);
         p.attach(loc2);
 
-        p.notifyUpdate(v);
+        p.isVehicleRented();
+        p.getVehicleDetails();
+        p.rentVehicle();
+        p.returnVehicle();
+
+        DusterSubject.isVehicleRented();
+        DusterSubject.getVehicleDetails();
+        DusterSubject.rentVehicle();
+        DusterSubject.returnVehicle();
 
         p.detach(loc1);
         p.attach(loc3);
 
-        System.out.println(loc1.locationVehicles.toString());
     }*/
 }

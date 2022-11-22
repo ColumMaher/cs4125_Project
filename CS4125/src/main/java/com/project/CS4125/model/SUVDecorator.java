@@ -2,8 +2,22 @@ package com.project.CS4125.model;
 
 public class SUVDecorator extends VehicleDecorator{
 
+    private String name;
+    private String BodyType;
+    private float EngineSize;
+    private String fuel;
+    private int SeatCapacity;
+
+    private boolean isRented;
+
     public SUVDecorator(Vehicle v) {
         super(v);
+        this.name = "Dacia Duster";
+        this.BodyType = "SUV";
+        this.EngineSize = 2;
+        this.fuel = "Diesel";
+        this.SeatCapacity = 5;
+        this.isRented = false;
     }
 
 
@@ -14,7 +28,6 @@ public class SUVDecorator extends VehicleDecorator{
 
     @Override
     public String BodyType() {
-
         return "SUV";
     }
 
@@ -31,5 +44,12 @@ public class SUVDecorator extends VehicleDecorator{
     @Override
     public int SeatCapacity() {
         return 5;
+    }
+    @Override
+    public void setRented(boolean rented) {
+        isRented = rented;
+    }
+    public boolean isRented() {
+        return isRented;
     }
 }

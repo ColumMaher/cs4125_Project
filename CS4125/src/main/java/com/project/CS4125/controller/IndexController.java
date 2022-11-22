@@ -27,7 +27,7 @@ public class IndexController {
         return "index";
     }
 
-    @PostMapping("/")
+    @PostMapping("/register")
     public String registerUser(@ModelAttribute User user){
 
         User u = userFactory.createUser(user.getName(), user.getPassword());

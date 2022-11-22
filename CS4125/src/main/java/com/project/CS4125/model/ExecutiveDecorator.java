@@ -2,8 +2,10 @@ package com.project.CS4125.model;
 
 public class ExecutiveDecorator extends VehicleDecorator{
 
+    private boolean isRented;
     public ExecutiveDecorator(Vehicle v) {
         super(v);
+        this.isRented = false;
     }
 
     @Override
@@ -29,5 +31,12 @@ public class ExecutiveDecorator extends VehicleDecorator{
     @Override
     public int SeatCapacity() {
         return 5;
+    }
+    @Override
+    public void setRented(boolean rented) {
+        isRented = rented;
+    }
+    public boolean isRented() {
+        return isRented;
     }
 }
