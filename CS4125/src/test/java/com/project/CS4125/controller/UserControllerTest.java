@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserControllerTest {
 
-    @Test
+    @Test   //Test template, not for actual development
     void add() {
         User testUser = new User("TestName", "TestPassword");
         assertEquals(testUser, testUser);
