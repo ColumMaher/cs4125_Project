@@ -6,13 +6,14 @@ import com.project.CS4125.service.CustomerFactory;
 import com.project.CS4125.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequestMapping("/")
 public class IndexController {
 
     @Autowired
@@ -20,12 +21,6 @@ public class IndexController {
 
     @Autowired
     private CustomerFactory userFactory;
-
-    @GetMapping("/")
-    public String registerForm(Model model){
-
-        return "index";
-    }
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user){
@@ -46,10 +41,7 @@ public class IndexController {
 
         User authenticatedUser = userService.authenticate(user.getName(), user.getPassword());
         System.out.println(authenticatedUser.toString());
+
         return "car-list";
-    }
-    @GetMapping("/car-list")
-    public String carList(){
-        return "index";
     }
 }

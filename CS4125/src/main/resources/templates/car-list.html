@@ -2,22 +2,33 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title>Vehicle List</title>
+
+  <h2 th:text="${location1}">Locations</h2>
+  <table class="table table-stripped">
+    <thead>
+    <td th:text="${vehicle1Name}">Vehicle Name</td>
+    </tr>
+    </thead>
+    <td th:text="${vehicle2Name}">Vehicle Name</td>
+
+    </tr>
+  </table>
+  <button>Rent <b><p th:text="${vehicle1Name}"></p></b></button>
+  <button>Rent <b><p th:text="${vehicle2Name}"></p></b></button>
+
+  <h3 th:text="${location2}">Locations</h3>
+  <table class="table table-stripped">
+    <thead>
+    <td th:text="${vehicle3Name}">Vehicle Name</td>
+    </tr>
+    </thead>
+    <td th:text="${vehicle4Name}">Vehicle Name</td>
+    </tr>
+  </table>
+  <button>Rent <b><p th:text="${vehicle3Name}"></p></b></button>
+  <button>Rent <b><p th:text="${vehicle4Name}"></p></b></button>
+
 </head>
-<body>
-<p> Registration Successful! </p>
 
-<div align="center">
-  <h1>Locations</h1>
-  <a th:href="">Locations</a>
-  <ul>
-    <li th:each="">
-      <span
-      th:text="">Default</span>
-    </li>
-  </ul>
-
-</div>
-
-</body>
 </html>

@@ -8,10 +8,13 @@ public class VehicleUpdatePublisher implements Subject{
     private boolean isRented;
     private Vehicle v;
 
-    public VehicleUpdatePublisher(Vehicle v){
+    private String VehicleName;
+
+    public VehicleUpdatePublisher(Vehicle v, String VehicleName){
         this.observerList = new ArrayList<>();
         this.isRented = false;
         this.v = v;
+        this.VehicleName = VehicleName;
     }
 
     @Override
@@ -47,11 +50,15 @@ public class VehicleUpdatePublisher implements Subject{
         v.setRented(false);
         notifyUpdate("Vehicle Returned");
     }
-    public void getVehicleDetails(){
-        String s = v.BodyType();
-        s += Float.toString(v.EngineSize());
-        s += v.fuel();
-        s += Integer.toString(v.SeatCapacity());
+    public String getVehicleDetails(){
+        String s = "Body Type: " + v.BodyType() + ",";
+        s += " Engine Size: " + Float.toString(v.EngineSize()) + "Liter,";
+        s += " Fuel Type: " + v.fuel() + ",";
+        s += " Seat Capacity: " + Integer.toString(v.SeatCapacity());
         notifyUpdate(s);
+        return s;
+    }
+    public String getVehicleName() {
+        return VehicleName;
     }
 }

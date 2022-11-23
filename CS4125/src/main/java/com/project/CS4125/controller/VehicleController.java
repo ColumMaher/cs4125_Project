@@ -1,8 +1,6 @@
 package com.project.CS4125.controller;
 
 import com.project.CS4125.model.*;
-import com.project.CS4125.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,38 +13,40 @@ import java.util.List;
 @RequestMapping("/car-list")
 public class VehicleController {
 
-    @Autowired
-    private UserService userService;
-
-
-    @GetMapping("/car-list")
+    @GetMapping
     public String carList(Model model){
 
         List<Vehicle> vehicles = new ArrayList<>();
 
         Vehicle VWGolf = new BasicCar();
-        VWGolf.assemble();
-
         Vehicle Duster = new SUVDecorator(new BasicCar());
-        Duster.assemble();
+
 
         vehicles.add(Duster);
-
-        model.addAttribute("Vehicles", vehicles);
-
 
         Location limerick= new Location("Limerick");
         Location cork = new Location("Cork");
 
-        //VehicleUpdatePublisher limerickPublisher = new VehicleUpdatePublisher();
-        //VehicleUpdatePublisher corkPublisher = new VehicleUpdatePublisher();
+        VehicleUpdatePublisher golfSubject = new VehicleUpdatePublisher(VWGolf, "Volkswagen Golf");
+        VehicleUpdatePublisher dustersubject = new VehicleUpdatePublisher(Duster, "Dacia Duster");
 
-        //limerickPublisher.attach(limerick);
-        //corkPublisher.attach(cork);
+        golfSubject.attach(limerick);
+        dustersubject.attach(limerick);
 
+        VehicleUpdatePublisher ferrariSubject = new VehicleUpdatePublisher(VWGolf, "Ferrari 458");
+        VehicleUpdatePublisher rollsRoyceSubject = new VehicleUpdatePublisher(Duster, "Rolls Royce Ghost");
 
+        ferrariSubject.attach(cork);
+        rollsRoyceSubject.attach(cork);
 
-        return "index";
+        model.addAttribute("location1", limerick.getLocationName());
+        model.addAttribute("vehicle1Name", golfSubject.getVehicleName());
+        model.addAttribute("vehicle2Name", dustersubject.getVehicleName());
+        model.addAttribute("location2", cork.getLocationName());
+        model.addAttribute("vehicle3Name", ferrariSubject.getVehicleName());
+        model.addAttribute("vehicle4Name", rollsRoyceSubject.getVehicleName());
+
+        return "car-list";
     }
 
 }
