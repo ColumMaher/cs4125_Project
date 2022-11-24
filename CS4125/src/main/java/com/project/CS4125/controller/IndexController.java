@@ -42,6 +42,6 @@ public class IndexController {
         User authenticatedUser = userService.authenticate(user.getName(), user.getPassword());
         System.out.println(authenticatedUser.toString());
 
-        return "car-list";
+        return "redirect:/car-list";
     }
 }

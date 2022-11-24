@@ -20,6 +20,8 @@ public class VehicleController {
 
         Vehicle VWGolf = new BasicCar();
         Vehicle Duster = new SUVDecorator(new BasicCar());
+        Vehicle Ferrari = new SportCarDecorator(new BasicCar());
+        Vehicle RR = new ExecutiveDecorator(new BasicCar());
 
 
         vehicles.add(Duster);
@@ -33,8 +35,8 @@ public class VehicleController {
         golfSubject.attach(limerick);
         dustersubject.attach(limerick);
 
-        VehicleUpdatePublisher ferrariSubject = new VehicleUpdatePublisher(VWGolf, "Ferrari 458");
-        VehicleUpdatePublisher rollsRoyceSubject = new VehicleUpdatePublisher(Duster, "Rolls Royce Ghost");
+        VehicleUpdatePublisher ferrariSubject = new VehicleUpdatePublisher(Ferrari, "Ferrari 458");
+        VehicleUpdatePublisher rollsRoyceSubject = new VehicleUpdatePublisher(RR    , "Rolls Royce Ghost");
 
         ferrariSubject.attach(cork);
         rollsRoyceSubject.attach(cork);
