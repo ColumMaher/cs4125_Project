@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServer implements com.project.CS4125.service.UserService {
+public class UserServer implements UserService {
 
     //Insert repository into service class
     @Autowired

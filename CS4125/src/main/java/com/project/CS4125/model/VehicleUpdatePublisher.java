@@ -4,38 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VehicleUpdatePublisher implements Subject{
-    private List<Observer> observerList;
+    private Observer observer;
     private boolean isRented;
-    private Vehicle v;
+    private Car car;
 
-    private String VehicleName;
+    private String CarName;
 
-    public VehicleUpdatePublisher(Vehicle v, String VehicleName){
-        this.observerList = new ArrayList<>();
+    public VehicleUpdatePublisher(Car car){
         this.isRented = false;
-        this.v = v;
-        this.VehicleName = VehicleName;
+        this.car = car;
+        this.CarName = car.getName();
     }
 
     @Override
     public void attach(Observer o){
-        observerList.add(o);
+        this.observer = o;
     }
 
     @Override
-    public void detach(Observer o){
-        observerList.remove(observerList.indexOf(o));
+    public void detach(){
+        observer = null;
     }
 
     @Override
     public void notifyUpdate(String m){
-        for(Observer o: observerList) {
-            o.VehicleStatus(m);
-        }
+            observer.VehicleStatus(m);
     }
     public void isVehicleRented(){
         String s;
-        if (isRented == false){
+        if (car.isRented() == false){
             s = "Vehicle is Available";
         } else{
             s = "Vehicle is Not Available";
@@ -43,22 +40,22 @@ public class VehicleUpdatePublisher implements Subject{
         notifyUpdate(s);
     }
     public void rentVehicle(){
-        v.setRented(true);
+        car.setRented(true);
         notifyUpdate("Vehicle Rented");
     }
     public void returnVehicle(){
-        v.setRented(false);
+        car.setRented(false);
         notifyUpdate("Vehicle Returned");
     }
     public String getVehicleDetails(){
-        String s = "Body Type: " + v.BodyType() + ",";
-        s += " Engine Size: " + Float.toString(v.EngineSize()) + "Liter,";
-        s += " Fuel Type: " + v.fuel() + ",";
-        s += " Seat Capacity: " + Integer.toString(v.SeatCapacity());
+        String s = "Body Type: " + car.getBodyType() + ",";
+        s += " Engine Size: " + Float.toString(car.getEngineSize()) + "Liter,";
+        s += " Fuel Type: " + car.getFuel() + ",";
+        s += " Seat Capacity: " + Integer.toString(car.getSeatCapacity());
         notifyUpdate(s);
         return s;
     }
     public String getVehicleName() {
-        return VehicleName;
+        return car.getName();
     }
 }

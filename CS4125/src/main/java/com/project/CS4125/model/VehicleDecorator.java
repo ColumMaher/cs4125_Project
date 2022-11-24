@@ -2,7 +2,7 @@ package com.project.CS4125.model;
 
 import java.util.ArrayList;
 
-public class VehicleDecorator implements Vehicle{
+public class VehicleDecorator extends Vehicle {
    protected Vehicle vehicle;
    private boolean isRented;
 
@@ -11,36 +11,23 @@ public class VehicleDecorator implements Vehicle{
        this.isRented = false;
    }
 
-   @Override
-   public void assemble(){
-       this.vehicle.assemble();
-   }
-
-   @Override
-   public String BodyType() {
-        return vehicle.BodyType();
-   }
-
-   @Override
-   public float EngineSize() {
-        return vehicle.EngineSize();
-   }
-
-   @Override
-   public String fuel() {
-        return vehicle.fuel();
-   }
-
-   @Override
-   public int SeatCapacity() {
-        return vehicle.SeatCapacity();
-   }
     @Override
-    public void setRented(boolean rented) {
-        isRented = rented;
+    String assembleBody(String BodyType) {
+        return vehicle.assembleBody(BodyType);
     }
 
-    public boolean isRented() {
-        return isRented;
+    @Override
+    float assembleEngine(float EngineSize) {
+        return vehicle.assembleEngine(EngineSize);
+    }
+
+    @Override
+    String assembleFuel(String fuel) {
+        return vehicle.assembleFuel(fuel);
+    }
+
+    @Override
+    int assembleSeatCapacity(int SeatCapacity) {
+        return vehicle.assembleSeatCapacity(SeatCapacity);
     }
 }

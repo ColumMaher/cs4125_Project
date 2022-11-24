@@ -1,11 +1,34 @@
 package com.project.CS4125.model;
 
-public interface Vehicle {
+import javax.persistence.*;
+
+@Entity
+@Inheritance
+public abstract class Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "vehicle_id", nullable = false)
+    private Long vehicleID;
+
     boolean isRented = false;
-    void assemble();
-    String BodyType();
-    float EngineSize();
-    String fuel();
-    int SeatCapacity();
-    void setRented(boolean rented);
+    String BodyType;
+    float EngineSize;
+    String fuel;
+    int SeatCapacity;
+
+    public Long getVehicleID() {
+        return vehicleID;
+    }
+
+    public void setVehicleID(Long vehicleID) {
+        this.vehicleID = vehicleID;
+    }
+
+    abstract String assembleBody(String bodyType);
+    abstract float assembleEngine(float EngineSize);
+
+    abstract String assembleFuel(String fuel);
+
+    abstract int assembleSeatCapacity(int SeatCapacity);
+
 }
