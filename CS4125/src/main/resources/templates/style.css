@@ -1,0 +1,49 @@
+#list1 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#list1 td, #list1 th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#list1 tr:nth-child(even){background-color: #f2f2f2;}
+
+#list1 tr:hover {background-color: #ddd;}
+
+#list1 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+#list2 {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#list2 td, #list2 th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#list2 tr:nth-child(even){background-color: #f2f2f2;}
+
+#list2 tr:hover {background-color: #ddd;}
+
+#list2 th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+h1, h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
