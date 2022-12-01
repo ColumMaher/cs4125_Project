@@ -10,4 +10,6 @@ public interface CarService {
     public Car saveCar(Car car);
 
     public List<Car> getAllCars();
+
+    public Car findCarByID(Car car);
 }

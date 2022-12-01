@@ -19,6 +19,11 @@ public class CarServer implements CarService{
     }
 
     @Override
+    public Car findCarByID(Car car) {
+        return carRepository.findById(car.getVehicleID()).orElse(null);
+    }
+
+    @Override
     public List<Car> getAllCars() {
         return carRepository.findAll();
     }

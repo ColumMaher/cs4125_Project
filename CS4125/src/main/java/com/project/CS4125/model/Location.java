@@ -23,6 +23,10 @@ public class Location implements Observer{
         locationVehicles.remove(c);
     }
 
+    public ArrayList<Car> getLocationVehicles() {
+        return locationVehicles;
+    }
+
     @Override
     public void VehicleStatus(String status){
         System.out.println(status);

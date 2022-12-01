@@ -7,7 +7,6 @@ public class VehicleUpdatePublisher implements Subject{
     private Observer observer;
     private boolean isRented;
     private Car car;
-
     private String CarName;
 
     public VehicleUpdatePublisher(Car car){
@@ -20,12 +19,10 @@ public class VehicleUpdatePublisher implements Subject{
     public void attach(Observer o){
         this.observer = o;
     }
-
     @Override
     public void detach(){
         observer = null;
     }
-
     @Override
     public void notifyUpdate(String m){
             observer.VehicleStatus(m);

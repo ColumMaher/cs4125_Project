@@ -1,9 +1,7 @@
 package com.project.CS4125.controller;
 
 import com.project.CS4125.model.Car;
-import com.project.CS4125.model.User;
 import com.project.CS4125.service.CarService;
-import com.project.CS4125.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

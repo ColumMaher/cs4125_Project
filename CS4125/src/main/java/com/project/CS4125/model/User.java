@@ -1,9 +1,12 @@
 package com.project.CS4125.model;
 
 
+import org.springframework.context.annotation.Scope;
+
 import javax.persistence.*;
 
 @Entity
+@Scope("session")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

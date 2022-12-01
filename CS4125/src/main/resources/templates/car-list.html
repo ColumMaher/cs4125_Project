@@ -9,29 +9,37 @@
   <h2 th:text="${location1.locationName}">Locations</h2>
   <h3>Vehicle List</h3>
   <table class="table table-stripped">
-    <tr>
-    <td th:text="${vehicle1Name}">Vehicle Name</td>
-    </tr>
-    </tr>
-    <td th:text="${vehicle2Name}">Vehicle Name</td>
-
+    <tr th:each="vehicle : ${location1vehicles}">
+      <td th:text="${vehicle.name}">Vehicle Name</td>
+      <td th:text="${vehicle.BodyType}">Vehicle Body Style</td>
+      <td th:text="${vehicle.EngineSize}">Vehicle Engine Size</td>
+      <td th:text="${vehicle.fuel}">Vehicle Fuel Type</td>
+      <td th:text="${vehicle.SeatCapacity}">Vehicle Seat Capacity</td>
     </tr>
   </table>
-  <button>Rent <b><p th:text="${vehicle1.name}"></p></b></button>
-  <button>Rent <b><p th:text="${vehicle2.name}"></p></b></button>
+
+  <h4>Select Vehicle</h4>
+  <form th:action="@{/car-list/order}" th:object="${car}">
+    <select name="SelectVehicle" id="SelectVehicle">
+      <option value="0">Select Vehicle</option>
+      <option th:each="vehicle : ${location1vehicles}"
+              th:value="${vehicle}"
+              th:text="${vehicle.name}"></option>
+    </select>
+    <button type="submit" th:value="#{vehicle}">Order Vehicle</button>
+  </form>
 
   <h2 th:text="${location2.locationName}">Locations</h2>
   <h3>Vehicle List</h3>
   <table class="table table-stripped">
-    <tr>
-    <td th:text="${vehicle3Name}">Vehicle Name</td>
-    </tr>
-    </tr>
-    <td th:text="${vehicle4Name}">Vehicle Name</td>
+    <tr th:each="vehicle : ${location2vehicles}">
+      <td th:text="${vehicle.name}">Vehicle Name</td>
+      <td th:text="${vehicle.BodyType}">Vehicle Body Style</td>
+      <td th:text="${vehicle.EngineSize}">Vehicle Engine Size</td>
+      <td th:text="${vehicle.fuel}">Vehicle Fuel Type</td>
+      <td th:text="${vehicle.SeatCapacity}">Vehicle Seat Capacity</td>
     </tr>
   </table>
-  <button>Rent <b><p th:text="${vehicle3.name}"></p></b></button>
-  <button>Rent <b><p th:text="${vehicle4.name}"></p></b></button>
 
 </head>
 

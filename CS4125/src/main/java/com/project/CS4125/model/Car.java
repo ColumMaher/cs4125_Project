@@ -7,13 +7,12 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "vehicle_id", nullable = false)
-    private Long vehicleID;
+    private int vehicleID;
     private String name;
     private String BodyType;
     private float EngineSize;
     private String fuel;
     private int SeatCapacity;
-
     private boolean isRented;
 
     public Car() {}
@@ -21,11 +20,11 @@ public class Car {
         this.name = Name;
     }
 
-    public Long getVehicleID() {
+    public int getVehicleID() {
         return vehicleID;
     }
 
-    public void setVehicleID(Long vehicleID) {
+    public void setVehicleID(int vehicleID) {
         this.vehicleID = vehicleID;
     }
 
