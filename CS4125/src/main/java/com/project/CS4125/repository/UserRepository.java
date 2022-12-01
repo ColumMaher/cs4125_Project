@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     Optional<User> findByNameAndPassword(String name, String password);
+    Optional<User> findByuserID(User user);
 }

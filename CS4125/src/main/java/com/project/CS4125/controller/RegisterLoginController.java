@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 
 @Controller
 @RequestMapping("/")
@@ -37,9 +40,15 @@ public class RegisterLoginController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@ModelAttribute User user){
+    public String loginUser(@ModelAttribute User user, HttpServletResponse response){
 
         User authenticatedUser = userService.authenticate(user.getName(), user.getPassword());
+
+        String ID = String.valueOf(authenticatedUser.getUserID());
+        Cookie cookie = new Cookie("userID", ID);
+
+        response.addCookie(cookie);
+
         System.out.println(authenticatedUser.toString());
 
         return "redirect:/car-list";

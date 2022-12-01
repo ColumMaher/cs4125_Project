@@ -10,4 +10,6 @@ public interface UserService {
     public User authenticate(String name, String password);
 
     public List<User> getAllUsers();
+
+    public User findUserByID(User user);
 }

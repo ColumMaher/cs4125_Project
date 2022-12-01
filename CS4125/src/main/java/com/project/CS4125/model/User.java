@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Scope;
 import javax.persistence.*;
 
 @Entity
-@Scope("session")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +19,9 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
+    }
+    public User(int ID){
+        this.userID = ID;
     }
 
     public int getUserID() {

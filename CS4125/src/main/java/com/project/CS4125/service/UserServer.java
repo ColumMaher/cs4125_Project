@@ -28,4 +28,9 @@ public class UserServer implements UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    @Override
+    public User findUserByID(User user) {
+        return userRepository.findById(user.getUserID()).orElse(null);
+    }
 }

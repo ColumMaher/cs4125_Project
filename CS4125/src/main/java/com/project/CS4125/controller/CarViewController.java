@@ -2,14 +2,20 @@ package com.project.CS4125.controller;
 
 import com.project.CS4125.model.*;
 import com.project.CS4125.service.CarService;
+import com.project.CS4125.service.CustomerFactory;
+import com.project.CS4125.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/car-list")
@@ -17,6 +23,10 @@ public class CarViewController {
 
     @Autowired
     private CarService carService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private CustomerFactory userFactory;
 
     @GetMapping
     public String carList(Model model) {
@@ -87,14 +97,22 @@ public class CarViewController {
     }
 
     @PostMapping("/car-list/order")
-    public String orderVehicle(/*@RequestParam(value = "SelectVehicle") Car vehicle, @ModelAttribute Car car*/) {
+    public String orderVehicle(@RequestParam(value = "SelectVehicle") Car vehicle, @ModelAttribute Car car) {
 
-        //System.out.println(car.getVehicleID());
-        //System.out.println(vehicle.getVehicleID());
+
+        System.out.println(car.getVehicleID());
+        System.out.println(vehicle.getVehicleID());
         System.out.println("Test");
 
         return "order";
     }
     @GetMapping("/order")
-    public String order(){return "order";}
+    public String order(@CookieValue(value = "userID") String UserID){
+
+        User u = userFactory.createUserByID(Integer.valueOf(UserID));
+        u = userService.findUserByID(u);
+        System.out.println(u.getName() + u.getUserID());
+
+        return "order";
+    }
 }
