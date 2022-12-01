@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -91,13 +92,15 @@ public class CarViewController {
         model.addAttribute("location1vehicles", location1cars);
         model.addAttribute("location2vehicles", location2cars);
 
-
         return "car-list";
     }
 
-    @PostMapping("/car-list/order")
-    public String orderVehicle(@RequestParam(value = "SelectVehicle") Car vehicle, @ModelAttribute Car car) {
+    @GetMapping("/car-list/order")
+    public String orderVehicle(@RequestParam(value = "option") Car vehicle, @ModelAttribute Car car, HttpServletResponse response) {
 
+
+        Cookie cookie = new Cookie("vehicleID", String.valueOf(vehicle.getVehicleID()));
+        response.addCookie(cookie);
 
         System.out.println(car.getVehicleID());
         System.out.println(vehicle.getVehicleID());
@@ -106,7 +109,9 @@ public class CarViewController {
         return "order";
     }
     @GetMapping("/order")
-    public String order(@CookieValue(value = "userID") String UserID){
+    public String order(@CookieValue(value = "userID") String UserID, @RequestParam(value = "SelectVehicle") String vehicle){
+
+        System.out.println(vehicle);
 
         User u = userFactory.createUserByID(Integer.valueOf(UserID));
         u = userService.findUserByID(u);
