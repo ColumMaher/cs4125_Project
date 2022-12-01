@@ -2,7 +2,7 @@ package com.project.CS4125.model;
 
 public class PaidState extends OrderState {
 
-    public PaidState(Order order) {
+    public PaidState(Orders order) {
         super(order);
     }
 

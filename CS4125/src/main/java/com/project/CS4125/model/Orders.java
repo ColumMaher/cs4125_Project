@@ -1,18 +1,25 @@
 package com.project.CS4125.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
-public class Order {
+@Entity
+public class Orders {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "orderID", nullable = false)
+    private int orderID;
+    @Transient
     private OrderState State;
-    private int orderId;
+    @Transient
     private Vehicle v;
     private int userId;
     private int paidStatus;
     private float moneyIn;
     private Date orderDay;
     
-    public Order() {
+    public Orders() {
         this.State= new ActiveState(this);
     	
     }
@@ -31,8 +38,8 @@ public class Order {
 
 
 
-    public int getOrderId() { return this.orderId; }
-    public void setOrderId(int orderId) { this.orderId = orderId; }
+    public int getOrderId() { return this.orderID; }
+    public void setOrderId(int orderId) { this.orderID = orderId; }
     public int getUserId() { return this.userId; }
     public void setUserId(int userId) { this.userId = userId; }
     public int getPaidStatus() { return this.paidStatus; }

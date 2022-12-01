@@ -1,10 +1,11 @@
 package com.project.CS4125.model;
 
+
 public abstract class OrderState {
 
-    Order order;
+    Orders order;
 
-    public OrderState(Order order) {
+    public OrderState(Orders order) {
         this.order = order;
     }
 

@@ -1,6 +1,7 @@
 package com.project.CS4125.service;
 
-import com.project.CS4125.model.Order;
+import com.project.CS4125.model.Orders;
+import com.project.CS4125.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -8,16 +9,21 @@ import java.util.List;
 @Service
 public class OrderServer implements OrderService{
 
-    private List<Order> orderList;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Override
-    public Order createOrder(Order order){
-        orderList.add(order);
-        return order;
+    public Orders createOrder(Orders order){
+        return orderRepository.save(order);
     }
 
     @Override
-    public List<Order> getOrder(){
-        return orderList;
+    public Orders findOrderByID(Orders order){
+        return orderRepository.findById(order.getOrderId()).orElse(null);
+    }
+
+    @Override
+    public List<Orders> getOrder(){
+        return orderRepository.findAll();
     }
 }

@@ -2,7 +2,7 @@ package com.project.CS4125.model;
 
 public class ActiveState extends OrderState {
 
-    public ActiveState(Order order) {
+    public ActiveState(Orders order) {
         super(order);
     }
 

@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Order</title>
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<h3>Order Complete</h3>
+<div>
+    <div>
+        <p>Order Details:</p>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Vehicle Model</th>
+                <th>Location</th>
+            </tr>
+            <tr th:each="order: ${ordersList}" >
+                <td th:text="${order.orderID}"></td>
+                <td th:text="${order.userID}"></td>
+                <td th:text="${order.paidStatus}"></td>
+                <td th:text="${order.moneyIn}"></td>
+                <td th:text="${order.orderDay}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

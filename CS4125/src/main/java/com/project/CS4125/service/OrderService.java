@@ -1,11 +1,13 @@
 package com.project.CS4125.service;
 
-import com.project.CS4125.model.Order;
+import com.project.CS4125.model.Orders;
 
 import java.util.List;
 
 public interface OrderService {
-    public Order createOrder(Order order);
+    public Orders createOrder(Orders order);
 
-    public List<Order> getOrder();
+    public List<Orders> getOrder();
+
+    public Orders findOrderByID(Orders order);
 }
