@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Registration Page</h1>
-<form action="#" th:action="@{/register}" th:object="${user}"
-        method="post">
-  <p>User Name <input type="text" name="name"></p>
-  <p>Password <input type="password" name="password"></p>
-  <button type="submit">Register</button>
-</form>
-<button><a href="/login">Login Here</a></button>
-</body>
+  <div class="login-page">
+    <h1>Registration Page</h1>
+    <div class="form">
+      <form class="login-form" action="#" th:action="@{/register}" th:object="${user}"
+            method="post">
+        <input type="text" name="name" placeholder="username"/>
+        <input type="password" name="password" placeholder="password"/>
+        <button type="submit">Register</button>
+        <p class="message">Already registered? <a href="/login">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+  </body>
 </html>
