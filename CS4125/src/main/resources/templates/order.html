@@ -8,6 +8,7 @@
           font-family: Arial, Helvetica, sans-serif;
           border-collapse: collapse;
           width: 100%;
+          align-self: center;
         }
 
         #customers td, #customers th {
@@ -26,11 +27,28 @@
           background-color: #04AA6D;
           color: white;
         }
+        table {
+            width: 800px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button{
+           background-color: #04AA6D;
+           border: none;
+           padding-top: 30px;
+           padding: 20px 30px;
+           font-size: 20px;
+           font-weight: bold;
+           border-radius: 5px;
+           color: white;
+        }
+
     </style>
 </head>
 <body>
-<h1>Order Complete</h1>
-    <div>
+<h1 align="center">Order Complete</h1>
+    <div style="table">
 
         <table id="customers">
             <tr>
@@ -66,7 +84,9 @@
                 <td th:text="${order.orderDay}"></td>
             </tr>
         </table>
-        <p><a href="/car-list/paymentScreen">Pay Now</a></p>
+    </div>
+    <div  align="center" style="padding-top:20px">
+        <button style="button" onclick="location.href='paymentScreen'">Pay Now</button>
     </div>
 </body>
 </html>
