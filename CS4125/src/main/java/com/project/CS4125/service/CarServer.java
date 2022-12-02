@@ -1,7 +1,6 @@
 package com.project.CS4125.service;
 
 import com.project.CS4125.model.Car;
-import com.project.CS4125.model.Vehicle;
 import com.project.CS4125.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

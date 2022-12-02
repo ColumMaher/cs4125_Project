@@ -6,8 +6,7 @@ import java.util.ArrayList;
 public class Location implements Observer{
 
     private String locationName;
-    //@Transient
-    ArrayList<Car> locationVehicles;
+    private ArrayList<Car> locationVehicles;
     public Location(String locName){
         this.locationName = locName;
         this.locationVehicles = new ArrayList<Car>();

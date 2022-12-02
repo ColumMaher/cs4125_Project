@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @CrossOrigin("http://localhost:3306")
 @RequestMapping("/Car")
 public class CarController {
     @Autowired
     private CarService carService;
-
     @PostMapping
     Car newCar(@RequestBody Car newCar) { return carService.saveCar(newCar); }
     @PostMapping("/add")

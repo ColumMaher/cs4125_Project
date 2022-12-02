@@ -49,27 +49,7 @@ public class RegisterLoginController {
 
         response.addCookie(cookie);
 
-        System.out.println(authenticatedUser.toString());
-        System.out.println("Logging in the account: " + String.valueOf(authenticatedUser.getName()));
-
-        boolean isAdmin = false;
-        if (String.valueOf(authenticatedUser.getName()).equals("admin")) {
-            System.out.println("RECOGNISED AS ADMIN");
-            isAdmin = true;
-        }
-        System.out.println(isAdmin);
-
-        String direction = "";
-        if (isAdmin == true) {
-            direction = "admin";
-        } else {
-            System.out.println("REDIRECTING TO MAIN MENU");
-            direction = "redirect:/car-list";
-        }
-
-        System.out.println("The name of the account is: " +String.valueOf(authenticatedUser.getName()));
-        System.out.print("Returning: " + direction);
-        return direction;
+        return "redirect:/car-list";
     }
     @GetMapping("/admin")
     public String admin(){
