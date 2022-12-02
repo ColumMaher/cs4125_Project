@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+//Rest Controller for User
 @RestController
 @CrossOrigin("http://localhost:3306")
 @RequestMapping("/User")

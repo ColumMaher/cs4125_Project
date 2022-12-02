@@ -1,9 +1,10 @@
 package com.project.CS4125.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class VehicleUpdatePublisher implements Subject{
+    //Concrete Subject
+    //Vehicle is subject
+    //It is observed by locations, makes sense as vehicles stay in location
+    //Can change location attaching and detaching observers as needed
     private Observer observer;
     private boolean isRented;
     private Car car;

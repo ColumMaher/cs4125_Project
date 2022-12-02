@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 public class Orders {
-
+    //Orders object
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "orderID", nullable = false)

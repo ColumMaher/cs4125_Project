@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class UserServer implements UserService {
 
+    //Service class for User
+
     //Insert repository into service class
     @Autowired
     private UserRepository userRepository;

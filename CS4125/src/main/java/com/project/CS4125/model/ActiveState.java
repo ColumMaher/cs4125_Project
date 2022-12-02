@@ -1,7 +1,8 @@
 package com.project.CS4125.model;
 
 public class ActiveState extends OrderState {
-
+    //Active State was designed to be the default state of an order.
+    //When an order is made its default state must be active
     public ActiveState(Orders order) {
         super(order);
     }

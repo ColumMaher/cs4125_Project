@@ -2,6 +2,7 @@ package com.project.CS4125.model;
 
 import javax.persistence.*;
 
+//Car Object
 @Entity
 public class Car {
     @Id

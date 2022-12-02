@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//Rest controller for order
 @RestController
 @CrossOrigin("http://localhost:3306")
 @RequestMapping("/orders")

@@ -1,6 +1,7 @@
 package com.project.CS4125.model;
 
 public class LuxuryCarBuilder implements Builder{
+    //Builder for luxury car car variant
     private Car car;
 
     public LuxuryCarBuilder(String CarName) {

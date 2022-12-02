@@ -1,7 +1,7 @@
 package com.project.CS4125.model;
 
 public class HatchBackCarBuilder implements Builder{
-
+    //Builder for small cars
     private Car car;
 
     public HatchBackCarBuilder(String CarName) {

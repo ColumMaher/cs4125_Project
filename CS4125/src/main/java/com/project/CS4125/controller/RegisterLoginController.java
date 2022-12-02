@@ -28,7 +28,9 @@ public class RegisterLoginController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user){
 
+        //Factory pattern for creating user using form input
         User u = userFactory.createUser(user.getName(), user.getPassword());
+        //Save User to Database
         userService.saveUser(u);
         return "login";
 
@@ -41,6 +43,9 @@ public class RegisterLoginController {
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute User user, HttpServletResponse response) {
+
+        //Querying DB using service class to authenticate user.
+        //User ID is placed in cookie
 
         User authenticatedUser = userService.authenticate(user.getName(), user.getPassword());
 

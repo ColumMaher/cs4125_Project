@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerFactory implements com.project.CS4125.service.UserFactory {
-
+    //Factory pattern
     @Override
     public User createUser(String name, String password) {
         return new User(name, password);

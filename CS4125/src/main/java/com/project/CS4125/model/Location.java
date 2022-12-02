@@ -4,7 +4,8 @@ import javax.persistence.Transient;
 import java.util.ArrayList;
 
 public class Location implements Observer{
-
+    //Location is the Observer for the observer design pattern
+    //Location observes the vehicles at that location
     private String locationName;
     private ArrayList<Car> locationVehicles;
     public Location(String locName){

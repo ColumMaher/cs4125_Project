@@ -37,6 +37,8 @@ public class CarViewController {
     @GetMapping
     public String carList(Model model) {
 
+        //Car objects for view list using Builder pattern
+
         SportCarBuilder sportCarBuilder = new SportCarBuilder("Ferrari 418");
         LuxuryCarBuilder luxuryCarBuilder = new LuxuryCarBuilder("Rolls Royce Ghost");
         HatchBackCarBuilder hatchBackCarBuilder = new HatchBackCarBuilder("Golf TSI");
@@ -93,6 +95,8 @@ public class CarViewController {
         golfSubject.attach(cork);
         suvSubject.attach(cork);
 
+        //Add required objects to view
+
         model.addAttribute("location1", limerick);
         model.addAttribute("location2", cork);
         model.addAttribute("location1vehicles", location1cars);
@@ -105,8 +109,15 @@ public class CarViewController {
     public String orderVehicle() {
         return "order";
     }
+    //Get mapping returns path for page
+    //Cookie is used to track which user is logged in
+    //Uses User ID
     @GetMapping("/order")
     public String order(@CookieValue(value = "userID") String UserID, @RequestParam(value = "SelectVehicle") String vehicle, Model model){
+
+        //Get User Selected Vehicle from car list
+        //Display Vehicle order information
+        //Store order in database
 
         Car c = new Car(Integer.valueOf(vehicle));
 

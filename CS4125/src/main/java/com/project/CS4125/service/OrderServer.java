@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class OrderServer implements OrderService{
-
+    //Service class for order
     @Autowired
     private OrderRepository orderRepository;
 
