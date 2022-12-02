@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Vehicle List</title>
+  <link rel="stylesheet" href="css/style.css">
 
-  <h1>Location List</h1>
-
+  <h1 align="center">Location List</h1>
+  <div class="main">
+  <div class="vehicle-lists">
   <h2 th:text="${location1.locationName}">Locations</h2>
   <h3>Vehicle List</h3>
+    <div class="box">
   <table class="table table-stripped">
     <tr th:each="vehicle : ${location1vehicles}">
       <td th:text="${vehicle.name}">Vehicle Name</td>
-      <td th:text="${vehicle.BodyType}">Vehicle Body Style</td>
-      <td th:text="${vehicle.EngineSize}">Vehicle Engine Size</td>
-      <td th:text="${vehicle.fuel}">Vehicle Fuel Type</td>
-      <td th:text="${vehicle.SeatCapacity}">Vehicle Seat Capacity</td>
+      <td th:text="${vehicle.BodyType}" align="center" style="padding-left:10px">Vehicle Body Style</td>
+      <td th:text="${vehicle.EngineSize}" style="padding-left:30px">Vehicle Engine Size</td>
+      <td th:text="${vehicle.fuel}" style="padding-left:30px">Vehicle Fuel Type</td>
+      <td th:text="${vehicle.SeatCapacity}" style="padding-left:30px">Vehicle Seat Capacity</td>
     </tr>
   </table>
-
+    </div>
   <h4>Select Vehicle</h4>
   <form th:action="@{/car-list/order}" th:object="${car}" method="get">
     <select name="SelectVehicle" id="SelectVehicle">
@@ -29,19 +32,21 @@
     </select>
     <button type="submit" th:value="#{vehicle}">Order Vehicle</button>
   </form>
-
+    </div>
+  <div class="vehicle-lists">
   <h2 th:text="${location2.locationName}">Locations</h2>
   <h3>Vehicle List</h3>
+    <div class="box">
   <table class="table table-stripped">
     <tr th:each="vehicle : ${location2vehicles}">
       <td th:text="${vehicle.name}">Vehicle Name</td>
-      <td th:text="${vehicle.BodyType}">Vehicle Body Style</td>
-      <td th:text="${vehicle.EngineSize}">Vehicle Engine Size</td>
-      <td th:text="${vehicle.fuel}">Vehicle Fuel Type</td>
-      <td th:text="${vehicle.SeatCapacity}">Vehicle Seat Capacity</td>
+      <td th:text="${vehicle.BodyType}" align="center" style="padding-left:10px">Vehicle Body Style</td>
+      <td th:text="${vehicle.EngineSize}" style="padding-left:50x">Vehicle Engine Size</td>
+      <td th:text="${vehicle.fuel}" style="padding-left:50px">Vehicle Fuel Type</td>
+      <td th:text="${vehicle.SeatCapacity}" style="padding-left:50px">Vehicle Seat Capacity</td>
     </tr>
   </table>
-
+    </div>
   <h4>Select Vehicle</h4>
   <form th:action="@{/car-list/order}" th:object="${car}" method="get">
     <select name="SelectVehicle" id="SelectVehicle2">
@@ -53,7 +58,8 @@
     </select>
     <button type="submit" th:value="#{vehicle}">Order Vehicle</button>
   </form>
-
+    </div>
+  </div>
 </head>
 
 </html>
