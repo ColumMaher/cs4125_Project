@@ -3,19 +3,14 @@ package com.project.CS4125.controller;
 import com.project.CS4125.model.*;
 import com.project.CS4125.service.CarService;
 import com.project.CS4125.service.CustomerFactory;
+import com.project.CS4125.service.OrderService;
 import com.project.CS4125.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/car-list")
@@ -27,6 +22,8 @@ public class CarViewController {
     private UserService userService;
     @Autowired
     private CustomerFactory userFactory;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping
     public String carList(Model model) {
@@ -96,25 +93,39 @@ public class CarViewController {
     }
 
     @GetMapping("/car-list/order")
-    public String orderVehicle(@RequestParam(value = "option") Car vehicle, @ModelAttribute Car car, HttpServletResponse response) {
-
-
-        Cookie cookie = new Cookie("vehicleID", String.valueOf(vehicle.getVehicleID()));
-        response.addCookie(cookie);
-
-        System.out.println(car.getVehicleID());
-        System.out.println(vehicle.getVehicleID());
-        System.out.println("Test");
+    public String orderVehicle(@RequestParam(value = "option") Car vehicle, @ModelAttribute Car car) {
 
         return "order";
     }
     @GetMapping("/order")
-    public String order(@CookieValue(value = "userID") String UserID, @RequestParam(value = "SelectVehicle") String vehicle){
+    public String order(@CookieValue(value = "userID") String UserID, @RequestParam(value = "SelectVehicle") String vehicle, Model model){
 
-        System.out.println(vehicle);
+        Car c = new Car(Integer.valueOf(vehicle));
+
+        c = carService.findCarByID(c);
+
+        System.out.println(c.getVehicleID());
+        System.out.println(c.getName());
+        System.out.println(c.getEngineSize());
+        System.out.println(c.getBodyType());
+        System.out.println(c.getSeatCapacity());
+
 
         User u = userFactory.createUserByID(Integer.valueOf(UserID));
         u = userService.findUserByID(u);
+
+        Orders order = new Orders(u.getUserID(), c);
+        orderService.createOrder(order);
+        order = orderService.findOrderByID(order);
+
+        System.out.println(order.getOrderID());
+        System.out.println(order.getUserId());
+        System.out.println(order.getPaidStatus());
+
+        model.addAttribute("User", u);
+        model.addAttribute("Car", c);
+        model.addAttribute("order", order);
+
         System.out.println(u.getName() + u.getUserID());
 
         return "order";

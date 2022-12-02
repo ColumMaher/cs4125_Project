@@ -20,6 +20,10 @@ public class Car {
         this.name = Name;
     }
 
+    public Car(int ID){
+        this.vehicleID = ID;
+    }
+
     public int getVehicleID() {
         return vehicleID;
     }

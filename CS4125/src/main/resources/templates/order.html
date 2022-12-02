@@ -3,29 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Order</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+    </style>
 </head>
 <body>
-<h3>Order Complete</h3>
-<div>
+<h1>Order Complete</h1>
     <div>
-        <p>Order Details:</p>
-    </div>
-    <div>
-        <table>
+
+        <table id="customers">
             <tr>
-                <th>Vehicle Model</th>
-                <th>Location</th>
+                <th>User Name</th>
+                <th>User ID</th>
             </tr>
-            <tr th:each="order: ${ordersList}" >
+            <tr>
+                <td th:text="${User.name}"></td>
+                <td th:text="${User.userID}"></td>
+            </tr>
+            <tr>
+                <th>Car</th>
+                <th>Body Style</th>
+                <th>Engine Size</th>
+                <th>Fuel</th>
+                <th>Seats</th>
+            </tr>
+            <tr>
+                <td th:text="${Car.name}"></td>
+                <td th:text="${Car.BodyType}"></td>
+                <td th:text="${Car.EngineSize}"></td>
+                <td th:text="${Car.fuel}"></td>
+                <td th:text="${Car.SeatCapacity}"> </td>
+            </tr>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Status</th>
+                <th>Time Ordered</th>
+            </tr>
+            <tr>
                 <td th:text="${order.orderID}"></td>
-                <td th:text="${order.userID}"></td>
-                <td th:text="${order.paidStatus}"></td>
-                <td th:text="${order.moneyIn}"></td>
+                <td th:text="Active"></td>
                 <td th:text="${order.orderDay}"></td>
             </tr>
         </table>
     </div>
-</div>
 </body>
 </html>

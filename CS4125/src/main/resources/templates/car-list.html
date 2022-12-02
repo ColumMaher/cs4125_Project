@@ -42,6 +42,18 @@
     </tr>
   </table>
 
+  <h4>Select Vehicle</h4>
+  <form th:action="@{/car-list/order}" th:object="${car}" method="get">
+    <select name="SelectVehicle" id="SelectVehicle2">
+      <option value="0">Select Vehicle</option>
+      <option name="option"
+              th:each="vehicle : ${location2vehicles}"
+              th:value="${vehicle.vehicleID}"
+              th:text="${vehicle.name}"></option>
+    </select>
+    <button type="submit" value="location2">Order Vehicle</button>
+  </form>
+
 </head>
 
 </html>
