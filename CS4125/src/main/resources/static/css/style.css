@@ -88,6 +88,36 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+.vehicle-lists {
+  border-radius: 25px;
+  padding: 20px;
+  display: inline-block;
+  width: 450px;
+  height: 350px;
+  background: #E1E1E1;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+.main {
+   width: 1000px;
+   margin: 0 auto;
+
+}
+.box {
+   background: #B7B7B7;
+   border-radius: 5px;
+   padding-left 50px;
+   padding-right 50px;
+   width: 400px:
+   height: 100px;
+   font-family: "Arial", sans-serif;
+   font-size: 20px;
+   text-align: left;
+   outline: solid;
+   outline-color: black;
+
+}
 body {
   background: #76b852; /* fallback for old browsers */
   background: rgb(141,194,111);

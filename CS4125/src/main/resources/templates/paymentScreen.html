@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>Payment Form</title>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        h1 {
+          text-align: center;
+        }
+        body {
+          font: normal bold 0.8em/1.2 montserrat;
+          margin: 10px 5px 10px 20px;
+          font-size: 20px;
+          padding: 15px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+        .container {
+          background-color: #f2f2f2;
+          padding: 5px 20px 15px 10px;
+          border: 1px solid lightgray;
+          border-radius: 4px;
+        }
+        input[type="email"],
+        input[type="text"] {
+          width: 100%;
+          padding: 3px 8px 5px 6px;
+          border: 1px solid rgb(240, 236, 236);
+          border-radius: 5px;
+        }
+
+        input[type="number"],
+        input[type="password"] {
+          padding: 3px 8px 5px 6px;
+          border: 1px solid rgb(240, 236, 236);
+          border-radius: 10px;
+        }
+        select {
+          padding: 3px 8px 5px 6px;
+          border: 1px solid rgb(240, 236, 236);
+          border-radius: 5px;
+        }
+        p {
+          font-family: montserrat;
+        }
+        .paynow {
+          background-color: rgb(167, 231, 114);
+          padding: 3px 8px 5px 6px;
+          border: 1px solid rgb(240, 236, 236);
+          border-radius: 5px;
+          width: 100%;
+        }
+        .payment {
+          background-color: rgb(167, 231, 114);
+          padding: 3px 8px 5px 6px;
+          border: 1px solid rgb(240, 236, 236);
+          border-radius: 8px;
+          width: 100%;
+          font: normal bold 0.8em/1.2 montserrat;
+          cursor: pointer;
+          text-align: center;
+        }
+        .payment:hover {
+          background-color: rgba(167, 231, 114, 0.692);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="" method="POST">
+        <h1>Payment Form</h1>
+        <p>Card Number
+            <input type="number" name="Card number" id="Card number" required>
+        </p>
+        <p>Expiry
+            <input type="number" name="Expiry" id="Expiry" required>
+        </p>
+        <p>Security Code
+            <input type="number" name="CVC" id="code" required>
+        </p>
+        <p class="payment"><a href="/car-list/paid">Pay Now</a></p>
+    </form>
+</div>
+</body>
+</html>

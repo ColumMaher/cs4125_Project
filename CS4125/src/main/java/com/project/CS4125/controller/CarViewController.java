@@ -5,12 +5,19 @@ import com.project.CS4125.service.CarService;
 import com.project.CS4125.service.CustomerFactory;
 import com.project.CS4125.service.OrderService;
 import com.project.CS4125.service.UserService;
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/car-list")
@@ -93,8 +100,7 @@ public class CarViewController {
     }
 
     @GetMapping("/car-list/order")
-    public String orderVehicle(@RequestParam(value = "option") Car vehicle, @ModelAttribute Car car) {
-
+    public String orderVehicle() {
         return "order";
     }
     @GetMapping("/order")
@@ -129,5 +135,29 @@ public class CarViewController {
         System.out.println(u.getName() + u.getUserID());
 
         return "order";
+    }
+
+    @Value("${stripe.apikey}")
+    String stripeAPIKEY;
+    @GetMapping("/paymentScreen")
+    public String paymentScreen(@CookieValue(value = "userID") String UserID) throws StripeException {
+
+        Stripe.apiKey = stripeAPIKEY;
+
+        User u = userFactory.createUserByID(Integer.valueOf(UserID));
+        u = userService.findUserByID(u);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", u.getName());
+
+        Customer customer = Customer.create(params);
+
+        System.out.println(stripeAPIKEY);
+
+        return "paymentScreen";
+    }
+    @GetMapping("/paid")
+    public String paidScreen(){
+        return "paid";
     }
 }
