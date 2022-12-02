@@ -89,12 +89,13 @@
   color: #EF3B3A;
 }
 .vehicle-lists {
+  border: 2px solid darkgray;
   border-radius: 25px;
   padding: 20px;
   display: inline-block;
   width: 450px;
   height: 350px;
-  background: #E1E1E1;
+  background-color: #f2f2f2;
   text-align: center;
   font-family: "Roboto", sans-serif;
 }
@@ -114,8 +115,8 @@
    font-family: "Arial", sans-serif;
    font-size: 20px;
    text-align: left;
-   outline: solid;
-   outline-color: black;
+   border: 2px solid #1E1E1E;
+
 
 }
 body {
