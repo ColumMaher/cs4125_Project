@@ -40,7 +40,7 @@ public class RegisterLoginController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@ModelAttribute User user, HttpServletResponse response){
+    public String loginUser(@ModelAttribute User user, HttpServletResponse response) {
 
         User authenticatedUser = userService.authenticate(user.getName(), user.getPassword());
 
@@ -50,7 +50,29 @@ public class RegisterLoginController {
         response.addCookie(cookie);
 
         System.out.println(authenticatedUser.toString());
+        System.out.println("Logging in the account: " + String.valueOf(authenticatedUser.getName()));
 
-        return "redirect:/car-list";
+        boolean isAdmin = false;
+        if (String.valueOf(authenticatedUser.getName()).equals("admin")) {
+            System.out.println("RECOGNISED AS ADMIN");
+            isAdmin = true;
+        }
+        System.out.println(isAdmin);
+
+        String direction = "";
+        if (isAdmin == true) {
+            direction = "admin";
+        } else {
+            System.out.println("REDIRECTING TO MAIN MENU");
+            direction = "redirect:/car-list";
+        }
+
+        System.out.println("The name of the account is: " +String.valueOf(authenticatedUser.getName()));
+        System.out.print("Returning: " + direction);
+        return direction;
+    }
+    @GetMapping("/admin")
+    public String admin(){
+        return "admin";
     }
 }
